@@ -1,0 +1,18 @@
+<nav>
+    <a class="button" routerLink="/breweries">All Breweries</a> |
+</nav>
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input type="text"
+            aria-label="Search"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onBrewerySelected($event.option.value)" [displayWith]="getBreweryName">
+            <mat-option *ngFor="let option of filteredOptions | async | slice : 0 : 5" [value]="option">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

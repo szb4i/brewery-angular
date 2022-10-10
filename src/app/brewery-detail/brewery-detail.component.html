@@ -1,0 +1,5 @@
+<mat-list role="list" *ngIf="brewery">
+    <mat-list-item role="listitem" *ngFor="let property of propertyNames">
+        {{ property }}: {{ brewery[property] }}
+    </mat-list-item>
+</mat-list>
